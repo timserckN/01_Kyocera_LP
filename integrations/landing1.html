@@ -901,51 +901,31 @@
 </body>
 
 <script>
-    window.onload = function() {
-
-        var form = document.getElementById("form");
-
-        // create the pristine instance
+    window.addEventListener("load", function() {
+        const form = document.getElementById('form');
         var pristine = new Pristine(form);
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener("submit", function(e) {
             e.preventDefault();
+            var valid = pristine.validate();
+            if (valid) {
+                const data = new FormData(form);
+                const action = e.target.action;
 
-            // check if the form is valid
-            var valid = pristine.validate(); // returns true or false
+                fetch(action, {
+                        method: 'POST',
+                        body: data,
+                    })
+                    .then(() => {
+                        alert("Success!");
+                    })
+            } else {
+                console.log("no valid")
+            }
+
 
         });
-
-
-        window.addEventListener("load", function() {
-            const form = document.getElementById('form');
-            var pristine = new Pristine(form);
-
-            form.addEventListener("submit", function(e) {
-                e.preventDefault();
-                var valid = pristine.validate();
-                if (valid) {
-                    const data = new FormData(form);
-                    const action = e.target.action;
-
-                    fetch(action, {
-                            method: 'POST',
-                            body: data,
-                        })
-                        .then(() => {
-                            alert("Success!");
-                        })
-                } else {
-                    console.log("no valid")
-                }
-
-
-            });
-        });
-
-
-
-    };
+    });
 </script>
 
 </html>
