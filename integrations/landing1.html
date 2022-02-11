@@ -840,26 +840,26 @@
                     </p>
                 </div>
 
-                <form class="form" action="https://c.kyoceradocumentsolutions.eu/l/325011/2021-10-21/4fb8j6" method="post">
+                <form id="form" class="form" method="POST" action="https://script.google.com/macros/s/AKfycbzGn-v9cz-vh_0sGuXVisKfmGkatFctywwp01CVoM5e6V-k6FjNdebkJXRhnMBqWXh7yw/exec">
                     <div class="form_fieldset form_fieldset-txt">
-                        <input placeholder=" " name="325011_55411pi_325011_55411" class="form_input form_input-txt" id="Raison sociale" type="text">
+                        <input placeholder="" name="raison_sociale" class="form_input form_input-txt" id="Raison sociale" type="text">
                         <label class="form_label form_label-txt" for="Raison sociale">Raison sociale</label>
                     </div>
                     <div class="form_fieldset form_fieldset-txt">
-                        <input placeholder=" " name="325011_55415pi_325011_55415" class="form_input form_input-txt" id="Prenom" type="text">
+                        <input placeholder=" " name="nom_prenom" class="form_input form_input-txt" id="Prenom" type="text">
                         <label class="form_label form_label-txt" for="Prenom">Nom/Prénom</label>
                     </div>
                     <div class="form_fieldset form_fieldset-txt">
-                        <input placeholder=" " name="325011_55413pi_325011_55413" class="form_input form_input-txt" id="email" type="email">
+                        <input placeholder=" " name="email" class="form_input form_input-txt" id="email" type="email">
                         <label class="form_label form_label-txt" for="email">email</label>
                     </div>
                     <div class="form_fieldset form_fieldset-txt">
-                        <input placeholder=" " name="325011_55419pi_325011_55419" class="form_input form_input-txt" id="tel" type="tel">
+                        <input placeholder=" " name="tel" class="form_input form_input-txt" id="tel" type="tel">
                         <label class="form_label form_label-txt" for="tel">Téléphone</label>
                     </div>
 
                     <div class="form_fieldset form_fieldset-checkbox">
-                        <input class="form_input form_input-checkbox" type="checkbox" name="325011_55421pi_325011_55421_359245" id="usage">
+                        <input class="form_input form_input-checkbox" type="checkbox" name="usage" id="usage">
                         <label class="form_label form_label-checkbox" for="usage">
                             J’accepte que Kyocera enregistre mes coordonnées à son usage
                             exclusif. De ce fait j’accepte de recevoir des informations
@@ -868,19 +868,13 @@
                     </div>
 
                     <div class="form_fieldset form_fieldset-checkbox">
-                        <input class="form_input form_input-checkbox" type="checkbox" name="325011_55423pi_325011_55423_359247" id="confidentialite">
+                        <input class="form_input form_input-checkbox" type="checkbox" name="confidentialite" id="confidentialite">
                         <label class="form_label form_label-checkbox" for="confidentialite">
                             Politique de confidentialité. Oui je suis d'accord avec la
                             <a target="_blank" class="link link-bold" href="https://www.kyoceradocumentsolutions.fr/index/footer/politique_de_gestion.html">politique
                                 de confidentialité</a>.
                         </label>
                     </div>
-                    <p style="position:absolute; left:-9999px; top: -9999px;visibility:hidden;">
-                        <label for="pi_extra_field">Comments</label>
-                        <input type="text" name="pi_extra_field" id="pi_extra_field" class="floatLabel">
-                    </p>
-                    <!-- forces IE5-8 to correctly submit UTF8 content  -->
-                    <input name="_utf8" type="hidden" value="☃">
 
                     <div class="form_btns">
                         <input class="form_input form_btn form_btn-submit cta cta-primary" type="submit" value="Télécharger">
@@ -907,9 +901,26 @@
 </body>
 
 <script>
+    window.addEventListener("load", function() {
+    const form = document.getElementById('form');
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        const action = e.target.action;
+        fetch(action, {
+                method: 'POST',
+                body: data,
+            })
+            .then(() => {
+                alert("Success!");
+            })
+    });
+    });
+
+
     //
 
-    var superForm = document.querySelector(".form");
+    // var superForm = document.querySelector(".form");
 
     // var isEveryInputEmpty = () => {
     //     var inputs = superForm.querySelectorAll('input[name]');
@@ -925,34 +936,34 @@
     //   return result
     // }
 
-    superForm.addEventListener("submit", function(e) {
-        e.preventDefault()
+    // superForm.addEventListener("submit", function(e) {
+    //     e.preventDefault()
 
-        const rawResponse = await fetch('post-user', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                a: 1,
-                b: 'Textual content'
-            })
-        });
-        const content = await rawResponse.json();
+    //     const rawResponse = await fetch('post-user', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             a: 1,
+    //             b: 'Textual content'
+    //         })
+    //     });
+    //     const content = await rawResponse.json();
 
-        console.log(content);
+    //     console.log(content);
 
-        // if(isEveryInputEmpty() === false && superForm.checkValidity()){
-        // e.preventDefault();
-        // window.open("https://ftp.kyonet.fr/public/file/SGEshd-6Q0eswNQ2t1kbUw/KYO_Production_printing_FR_BD.pdf", '_blank');
-        // superForm.submit()
+    // if(isEveryInputEmpty() === false && superForm.checkValidity()){
+    // e.preventDefault();
+    // window.open("https://ftp.kyonet.fr/public/file/SGEshd-6Q0eswNQ2t1kbUw/KYO_Production_printing_FR_BD.pdf", '_blank');
+    // superForm.submit()
 
-        // } else{
+    // } else{
 
-        //   return;
+    //   return;
 
-        // }
+    // }
 
     });
 </script>
