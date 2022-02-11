@@ -1,1 +1,1 @@
-console.log("im plug")
+console.log("im plug");
