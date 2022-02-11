@@ -840,7 +840,7 @@
                     </p>
                 </div>
 
-                <form id="form" class="form" method="POST" action="https://script.google.com/macros/s/AKfycbzGn-v9cz-vh_0sGuXVisKfmGkatFctywwp01CVoM5e6V-k6FjNdebkJXRhnMBqWXh7yw/exec">
+                <form id="form" class="form" method="POST" action="https://script.google.com/macros/s/AKfycbxR3e0oW307G7GvtZ97Pqamvl0QIytY3LM9SxEKzjhdAKYfD6TveClAFynZJ5T6wIX6Hg/exec">
                     <div class="form_fieldset form_fieldset-txt">
                         <input placeholder="" name="raison_sociale" class="form_input form_input-txt" id="Raison sociale" type="text">
                         <label class="form_label form_label-txt" for="Raison sociale">Raison sociale</label>
@@ -902,69 +902,19 @@
 
 <script>
     window.addEventListener("load", function() {
-    const form = document.getElementById('form');
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        const data = new FormData(form);
-        const action = e.target.action;
-        fetch(action, {
-                method: 'POST',
-                body: data,
-            })
-            .then(() => {
-                alert("Success!");
-            })
-    });
-    });
-
-
-    //
-
-    // var superForm = document.querySelector(".form");
-
-    // var isEveryInputEmpty = () => {
-    //     var inputs = superForm.querySelectorAll('input[name]');
-
-    //     var result = false
-    //     for (const input of inputs){
-
-    //     if (input.value.trim() == ''){
-    //       result = true
-    //     }  
-
-    //     }
-    //   return result
-    // }
-
-    // superForm.addEventListener("submit", function(e) {
-    //     e.preventDefault()
-
-    //     const rawResponse = await fetch('post-user', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             a: 1,
-    //             b: 'Textual content'
-    //         })
-    //     });
-    //     const content = await rawResponse.json();
-
-    //     console.log(content);
-
-    // if(isEveryInputEmpty() === false && superForm.checkValidity()){
-    // e.preventDefault();
-    // window.open("https://ftp.kyonet.fr/public/file/SGEshd-6Q0eswNQ2t1kbUw/KYO_Production_printing_FR_BD.pdf", '_blank');
-    // superForm.submit()
-
-    // } else{
-
-    //   return;
-
-    // }
-
+        const form = document.getElementById('form');
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const data = new FormData(form);
+            const action = e.target.action;
+            fetch(action, {
+                    method: 'POST',
+                    body: data,
+                })
+                .then(() => {
+                    alert("Success!");
+                })
+        });
     });
 </script>
 
