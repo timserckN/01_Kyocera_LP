@@ -903,7 +903,20 @@
 <script>
     window.addEventListener("load", function() {
         const form = document.getElementById('form');
-        var pristine = new Pristine(form);
+        let defaultConfig = {
+            // class of the parent element where the error/success class is added
+            classTo: 'form_fieldset',
+            errorClass: 'has-danger',
+            successClass: 'has-success',
+            // class of the parent element where error text element is appended
+            errorTextParent: 'form_fieldset',
+            // type of element to create for the error text
+            errorTextTag: 'div',
+            // class of the error text element
+            errorTextClass: 'text-help'
+        };
+
+        var pristine = new Pristine(form, defaultConfig);
 
         form.addEventListener("submit", function(e) {
             e.preventDefault();
