@@ -906,4 +906,55 @@
 
 </body>
 
+<script>
+    //
+
+    var superForm = document.querySelector(".form");
+
+    // var isEveryInputEmpty = () => {
+    //     var inputs = superForm.querySelectorAll('input[name]');
+
+    //     var result = false
+    //     for (const input of inputs){
+
+    //     if (input.value.trim() == ''){
+    //       result = true
+    //     }  
+
+    //     }
+    //   return result
+    // }
+
+    superForm.addEventListener("submit", function(e) {
+        e.preventDefault()
+
+        const rawResponse = await fetch('https://httpbin.org/post', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                a: 1,
+                b: 'Textual content'
+            })
+        });
+        const content = await rawResponse.json();
+
+        console.log(content);
+
+        // if(isEveryInputEmpty() === false && superForm.checkValidity()){
+        // e.preventDefault();
+        // window.open("https://ftp.kyonet.fr/public/file/SGEshd-6Q0eswNQ2t1kbUw/KYO_Production_printing_FR_BD.pdf", '_blank');
+        // superForm.submit()
+
+        // } else{
+
+        //   return;
+
+        // }
+
+    });
+</script>
+
 </html>
