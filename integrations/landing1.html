@@ -928,7 +928,7 @@
     superForm.addEventListener("submit", function(e) {
         e.preventDefault()
 
-        const rawResponse = await fetch('https://httpbin.org/post', {
+        const rawResponse = await fetch('post-user', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
