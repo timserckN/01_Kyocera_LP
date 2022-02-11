@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0022)http://localhost:9000/ -->
 <html>
 
 <head>
@@ -843,24 +842,24 @@
 
                 <form id="form" class="form" method="POST" action="https://script.google.com/macros/s/AKfycbxR3e0oW307G7GvtZ97Pqamvl0QIytY3LM9SxEKzjhdAKYfD6TveClAFynZJ5T6wIX6Hg/exec">
                     <div class="form_fieldset form_fieldset-txt">
-                        <input placeholder="" name="raison_sociale" class="form_input form_input-txt" id="Raison sociale" type="text">
+                        <input required placeholder="" name="raison_sociale" class="form_input form_input-txt" id="Raison sociale" type="text">
                         <label class="form_label form_label-txt" for="Raison sociale">Raison sociale</label>
                     </div>
                     <div class="form_fieldset form_fieldset-txt">
-                        <input placeholder=" " name="nom_prenom" class="form_input form_input-txt" id="Prenom" type="text">
+                        <input required placeholder=" " name="nom_prenom" class="form_input form_input-txt" id="Prenom" type="text">
                         <label class="form_label form_label-txt" for="Prenom">Nom/Prénom</label>
                     </div>
                     <div class="form_fieldset form_fieldset-txt">
-                        <input placeholder=" " name="email" class="form_input form_input-txt" id="email" type="email">
+                        <input required placeholder=" " name="email" class="form_input form_input-txt" id="email" type="email">
                         <label class="form_label form_label-txt" for="email">email</label>
                     </div>
                     <div class="form_fieldset form_fieldset-txt">
-                        <input placeholder=" " name="tel" class="form_input form_input-txt" id="tel" type="tel">
+                        <input required placeholder=" " name="tel" class="form_input form_input-txt" id="tel" type="tel">
                         <label class="form_label form_label-txt" for="tel">Téléphone</label>
                     </div>
 
                     <div class="form_fieldset form_fieldset-checkbox">
-                        <input class="form_input form_input-checkbox" type="checkbox" name="usage" id="usage">
+                        <input required class="form_input form_input-checkbox" type="checkbox" name="usage" id="usage">
                         <label class="form_label form_label-checkbox" for="usage">
                             J’accepte que Kyocera enregistre mes coordonnées à son usage
                             exclusif. De ce fait j’accepte de recevoir des informations
@@ -869,7 +868,7 @@
                     </div>
 
                     <div class="form_fieldset form_fieldset-checkbox">
-                        <input class="form_input form_input-checkbox" type="checkbox" name="confidentialite" id="confidentialite">
+                        <input class="form_input required form_input-checkbox" type="checkbox" name="confidentialite" id="confidentialite">
                         <label class="form_label form_label-checkbox" for="confidentialite">
                             Politique de confidentialité. Oui je suis d'accord avec la
                             <a target="_blank" class="link link-bold" href="https://www.kyoceradocumentsolutions.fr/index/footer/politique_de_gestion.html">politique
@@ -936,6 +935,8 @@
                         .then(() => {
                             alert("Success!");
                         })
+                } else {
+                    console.log("no valid")
                 }
 
 
