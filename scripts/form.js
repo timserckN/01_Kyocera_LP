@@ -1,4 +1,5 @@
 window.addEventListener("load", function() {
+    console.log("here")
     const form = document.getElementById('form');
     let defaultConfig = {
         // class of the parent element where the error/success class is added
@@ -16,6 +17,8 @@ window.addEventListener("load", function() {
     var honey = document.querySelector('[name="contact_me_by_fax_only"]').value;
     console.log(honey, "honey");
     form.addEventListener("submit", function(e) {
+        console.log("submit")
+
         e.preventDefault();
         var valid = pristine.validate();
         if (valid && honey === 1) {
