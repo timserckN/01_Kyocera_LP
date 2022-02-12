@@ -15,8 +15,10 @@ window.addEventListener("load", function() {
     var pristine = new Pristine(form, defaultConfig);
     var honey = document.querySelector('[name="contact_me_by_fax_only"]').value;
     form.addEventListener("submit", function(e) {
+        console.log(e, "?e")
         e.preventDefault();
         var valid = pristine.validate();
+        console.log(valid, honey, "valid ?")
         if (valid && honey === 1) {
             const data = new FormData(form);
             const action = e.target.action;
