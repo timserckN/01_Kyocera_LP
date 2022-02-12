@@ -23,6 +23,7 @@ window.addEventListener("load", function() {
         e.preventDefault();
         var valid = pristine.validate();
         console.log("valid", valid)
+        console.log("honey", honey, typeof(honey))
 
         if (valid && honey === 1) {
             const data = new FormData(form);
