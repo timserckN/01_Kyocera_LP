@@ -12,9 +12,7 @@ window.addEventListener("load", function() {
         // class of the error text element
         errorTextClass: 'text-help'
     };
-
     var pristine = new Pristine(form, defaultConfig);
-
     form.addEventListener("submit", function(e) {
         e.preventDefault();
         var valid = pristine.validate();
@@ -27,6 +25,7 @@ window.addEventListener("load", function() {
                     body: data,
                 })
                 .then(() => {
+                    window.open("https://timserckn.github.io/01_Kyocera_LP/integrations/tk.html")
                     window.open("https://ftp.kyonet.fr/public/file/SGEshd-6Q0eswNQ2t1kbUw/KYO_Production_printing_FR_BD.pdf", "_blank")
                 })
         }
