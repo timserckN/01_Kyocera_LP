@@ -13,6 +13,8 @@ window.addEventListener("load", function() {
         errorTextClass: 'text-help'
     };
     var pristine = new Pristine(form, defaultConfig);
+    var honey = document.querySelector('[name="contact_me_by_fax_only"]').value;
+    console.log(honey, "honey");
     form.addEventListener("submit", function(e) {
         e.preventDefault();
         var valid = pristine.validate();
