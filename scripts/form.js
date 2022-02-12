@@ -14,11 +14,10 @@ window.addEventListener("load", function() {
     };
     var pristine = new Pristine(form, defaultConfig);
     var honey = document.querySelector('[name="contact_me_by_fax_only"]').value;
-    console.log(honey, "honey");
     form.addEventListener("submit", function(e) {
         e.preventDefault();
         var valid = pristine.validate();
-        if (valid) {
+        if (valid && honey === 1) {
             const data = new FormData(form);
             const action = e.target.action;
 
@@ -27,6 +26,7 @@ window.addEventListener("load", function() {
                     body: data,
                 })
                 .then(() => {
+                    e.target.reset();
                     window.open("https://timserckn.github.io/01_Kyocera_LP/integrations/tk.html")
                     window.open("https://ftp.kyonet.fr/public/file/SGEshd-6Q0eswNQ2t1kbUw/KYO_Production_printing_FR_BD.pdf", "_blank")
                 })
