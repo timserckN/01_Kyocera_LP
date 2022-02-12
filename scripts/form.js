@@ -18,9 +18,12 @@ window.addEventListener("load", function() {
     console.log(honey, "honey");
     form.addEventListener("submit", function(e) {
         console.log("submit")
+        console.log("e", e)
 
         e.preventDefault();
         var valid = pristine.validate();
+        console.log("valid", valid)
+
         if (valid && honey === 1) {
             const data = new FormData(form);
             const action = e.target.action;
@@ -30,7 +33,7 @@ window.addEventListener("load", function() {
                     body: data,
                 })
                 .then(() => {
-
+                    form.reset();
                     window.open("https://timserckn.github.io/01_Kyocera_LP/integrations/tk.html")
                     window.open("https://ftp.kyonet.fr/public/file/SGEshd-6Q0eswNQ2t1kbUw/KYO_Production_printing_FR_BD.pdf", "_blank")
                 })
