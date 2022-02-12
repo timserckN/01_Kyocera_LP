@@ -25,7 +25,7 @@ window.addEventListener("load", function() {
         console.log("valid", valid)
         console.log("honey", honey, typeof(honey))
 
-        if (valid && honey === 1) {
+        if (valid && honey === '1') {
             const data = new FormData(form);
             const action = e.target.action;
             console.log("data", "action")
