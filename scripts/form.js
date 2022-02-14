@@ -29,8 +29,8 @@ window.addEventListener("load", function() {
                 })
                 .then(() => {
                     form.reset();
-                    window.open("https://timserckn.github.io/01_Kyocera_LP/integrations/tk.html")
                     window.open("https://ftp.kyonet.fr/public/file/SGEshd-6Q0eswNQ2t1kbUw/KYO_Production_printing_FR_BD.pdf", "_blank")
+                    window.open("https://timserckn.github.io/01_Kyocera_LP/integrations/tk.html") 
                 })
         }
     });
