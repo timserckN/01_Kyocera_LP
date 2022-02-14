@@ -22,8 +22,9 @@ window.addEventListener("load", function() {
 
         if (valid && honey === '1') {
             const data = new FormData(form);
-            console.log(data, "data")
-            const action = e.target.action;
+            const currenturl = window.location.href;
+            const action = e.target.action + "?=" + currenturl;
+           
             fetch(action, {
                     method: 'POST',
                     body: data,
