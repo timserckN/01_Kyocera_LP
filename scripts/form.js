@@ -30,7 +30,7 @@ window.addEventListener("load", function() {
                 .then(() => {
                     form.reset();
                     window.open("https://ftp.kyonet.fr/public/file/SGEshd-6Q0eswNQ2t1kbUw/KYO_Production_printing_FR_BD.pdf", "_tab")
-                    window.open("https://timserckn.github.io/01_Kyocera_LP/integrations/tk.html", "_self") 
+                    window.open("https://justsearch.fr/landings/01_Kyocera_LP/integrations/tk.html", "_self") 
                 })
         }
     });
