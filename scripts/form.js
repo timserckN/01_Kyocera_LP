@@ -22,6 +22,7 @@ window.addEventListener("load", function() {
 
         if (valid && honey === '1') {
             const data = new FormData(form);
+            console.log(data, "data")
             const action = e.target.action;
             fetch(action, {
                     method: 'POST',
