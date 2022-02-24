@@ -23,8 +23,10 @@ window.addEventListener("load", function() {
         if (valid && honey === '1') {
             const data = new FormData(form);
             const currenturl = window.location.href;
+            data.set("date", new Date().toLocaleDateString());
+            data.set("currenturl", currenturl);
             const action = e.target.action + "?=" + currenturl;
-           
+
             fetch(action, {
                     method: 'POST',
                     body: data,
@@ -32,7 +34,7 @@ window.addEventListener("load", function() {
                 .then(() => {
                     form.reset();
                     window.open("https://ftp.kyonet.fr/public/file/SGEshd-6Q0eswNQ2t1kbUw/KYO_Production_printing_FR_BD.pdf", "_tab")
-                    window.open("https://www.mykyocera.fr/integrations/tk.html", "_self") 
+                    window.open("https://www.mykyocera.fr/integrations/tk.html", "_self")
                 })
         }
     });
