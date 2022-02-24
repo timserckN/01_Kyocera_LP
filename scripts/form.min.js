@@ -23,9 +23,10 @@ window.addEventListener("load", function() {
         if (valid && honey === '1') {
             const data = new FormData(form);
             const currenturl = window.location.href;
-            data.set("date", new Date().toLocaleDateString());
-            data.set("currenturl", currenturl);
+            data.append("date", new Date().toLocaleDateString());
+            data.append("currenturl", currenturl);
             const action = e.target.action + "?=" + currenturl;
+
 
             fetch(action, {
                     method: 'POST',
